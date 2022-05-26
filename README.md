@@ -1,8 +1,8 @@
 # PostgreSQL_Cpp #
 
-This is a template repository which includes basic PostgreSQL queries. In the README below you can find a detailed instruction on how to setup your environment to use it within your C++ application. This README will contain all tools that I am using in my development environmnt. Of course, you are free to use the tools that you're most comfortable with :)
+This is a template repository which includes basic PostgreSQL queries. In the README below you can find a detailed instruction on how to setup your environment to use it within your C++ application. This README will contain all tools that I am using in my development environment. Of course, you are free to use the tools that you're most comfortable with :)
 
-Currently, this works in a Windows 10 environment, but it is planned to expand this guide to a Linux environmnt in some point of time.
+Currently, this works in a Windows 10 environment, but it is planned to expand this guide to a Linux environment in some point of time.
 
 ## Prerequirements ##
 
@@ -19,7 +19,7 @@ Currently, this works in a Windows 10 environment, but it is planned to expand t
 1. Install the PostgreSQL server on your Windows 10 PC.
     + You can follow [this](https://www.2ndquadrant.com/en/blog/pginstaller-install-postgresql/) guide for a more detailed explanation
 2. After the installation is completed, restart your PC to run the PostgreSQL server
-3. To check wheter your database is successfully created, open your database GUI tool and connect your local database. The picture below shows the connection parameters for a default installed database.
+3. To check whether your database is successfully created, open your database GUI tool and connect your local database. The picture below shows the connection parameters for a default installed database.
 ![01_test_connection](/Assets/01_db_connection_test.PNG)
 4. After you verified that the database is successfully created, add a new table. In my case the table is called `pc`.
 5. Add some attributes and fill the table with some dummy data. In my case, this looks like the following. 
@@ -39,20 +39,20 @@ The string consists of 5 parameters:
 * `user=postgres` - The username to access the database . This is a default username.
 * `password=root` - Password to access the database.
 
-The rest of the code represents the connection and quering logic. For more examples you can look up ictlyh [page](https://gist.github.com/ictlyh/12fe787ec265b33fd7e4b0bd08bc27cb).
+The rest of the code represents the connection and querying logic. For more examples you can look up directly [page](https://gist.github.com/ictlyh/12fe787ec265b33fd7e4b0bd08bc27cb).
 
 ## Building the project ##
 
 1. In order to query your PostgreSQL database, you need to link it with the library which comes in the PostgreSQL installation package. In order to do that, add the following CMake code to your `CMakeLists.txt`:
 
 ```cmake
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.23)
 project(ExamplePostgreSQL VERSION 0.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
 # Custom location of the PostgreSQL library
-set(PostgreSQL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/PostgreSQL13")
+set(PostgreSQL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/PostgreSQL14")
 set(PostgreSQL_ROOT "${PostgreSQL_DIR}")
 set(PostgreSQL_LIBRARY_DIR "${PostgreSQL_DIR}/lib")
 set(PostgreSQL_INCLUDE_DIRS "${PostgreSQL_DIR}/include")
@@ -74,7 +74,19 @@ add_executable(ExamplePostgreSQL main.cpp)
 target_link_libraries(ExamplePostgreSQL ${PostgreSQL_LIBRARIES})
 ```
 
-2. If you installed the MSYS environment on your PC, open up the MSYS console and navigate to the root of this project.
+2. If you intend to build this with the MSYS environment, make sure you follow the steps on the https://www.msys2.org/ and ensure you install the
+```shell
+mingw-w64-x86_64-cmake``` package. 
+
+For example, ensure the following are installed.
+
+```shell
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain  mingw-w64-x86_64-cmake
+```
+
+
+Once the MSYS environment has the required installed packages, open the 'MSYS MinGW x64' console and navigate to the root of this project.
+
 3. Create a new folder and create a new `build` folder. Execute the following command:
 ```shell
 mkdir -p build

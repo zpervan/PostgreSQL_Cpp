@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.19)
-project(ExamplePostgreSQL VERSION 0.0)
+cmake_minimum_required(VERSION 3.23)
+project(ExamplePostgreSQL VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
 # Custom location of the PostgreSQL library
-set(PostgreSQL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/PostgreSQL13")
+set(PostgreSQL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/PostgreSQL14")
 set(PostgreSQL_ROOT "${PostgreSQL_DIR}")
 set(PostgreSQL_LIBRARY_DIR "${PostgreSQL_DIR}/lib")
 set(PostgreSQL_INCLUDE_DIRS "${PostgreSQL_DIR}/include")
