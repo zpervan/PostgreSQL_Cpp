@@ -97,10 +97,16 @@ cmake ..
 ```shell
 cmake --build .
 ```
-6. Run the built executable:
+6. Run the built executable in a Windows DOS box:
 ```shell
 .\ExamplePostgreSQL.exe
 ```
+If an error like the following appears such as:
+```shell
+C:/msys64/home/user/PostgreSQL_Cpp/build/ExamplePostgreSQL.exe: error while loading shared libraries: LIBPQ.dll: cannot open shared object file: No such file or directory
+```
+Then you need to ensure you add your PostgreSQL installation's bin folder to your windows path variable. For example: `C:\Program Files\PostgreSQL\14\bin`
+
 In my case, it will output the following:
 ![03_output](/Assets/03_output.PNG)
 
