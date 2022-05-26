@@ -47,7 +47,7 @@ The rest of the code represents the connection and querying logic. For more exam
 
 ```cmake
 cmake_minimum_required(VERSION 3.23)
-project(ExamplePostgreSQL VERSION 0.0)
+project(ExamplePostgreSQL VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 20)
 
