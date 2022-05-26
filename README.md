@@ -75,17 +75,15 @@ target_link_libraries(ExamplePostgreSQL ${PostgreSQL_LIBRARIES})
 ```
 
 2. If you intend to build this with the MSYS environment, make sure you follow the steps on the https://www.msys2.org/ and ensure you install the
-```shell
-mingw-w64-x86_64-cmake``` package. 
+`mingw-w64-x86_64-cmake` package. 
 
 For example, ensure the following are installed.
 
 ```shell
-pacman -S --needed base-devel mingw-w64-x86_64-toolchain  mingw-w64-x86_64-cmake
+pacman -S --needed base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-cmake
 ```
 
-
-Once the MSYS environment has the required installed packages, open the 'MSYS MinGW x64' console and navigate to the root of this project.
+Once the MSYS32 environment has the required installed packages, close the normal/purple icon 'MSYS2' console and open the blue icon 'MSYS2 MinGW x64' console and navigate to the root of this project.
 
 3. Create a new folder and create a new `build` folder. Execute the following command:
 ```shell
